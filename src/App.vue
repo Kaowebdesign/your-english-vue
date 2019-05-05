@@ -1,15 +1,21 @@
 <template>
-  <div id="app">
+  <v-app>
     <app-header></app-header>
-    <router-view/>
-  </div>
+    <v-content>
+      <router-view/>
+    </v-content>
+    <app-footer></app-footer>
+  </v-app>
 </template>
 
 <script>
 import AppHeader from '@/components/AppHeader'
+import AppFooter from '@/components/AppFooter'
+
 export default {
     components:{
-      AppHeader
+      AppHeader,
+      AppFooter
     }
 }
 </script>

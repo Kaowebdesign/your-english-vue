@@ -42,32 +42,32 @@
                 return [
                     {
                         icon:'visibility',
-                        title:'Читать',
+                        title:'Навчання',
                         route:'/articles'
                     },
                     {
                         icon:'extension',
-                        title:'Словарь',
+                        title:'Словник',
                         route:'/vocabulary'
                     },
                     {
                         icon:'account_circle',
-                        title:'Профиль',
+                        title:'Профіль',
                         route:'/profile'
                     },
                     {
                         icon:'exit_to_app',
-                        title:'Выйти',
+                        title:'Вихід',
                         route:'/logout'
                     },
                     {
                         icon:'input',
-                        title:'Войти',
+                        title:'Вхід',
                         route:'/signin'
                     },
                     {
                         icon:'lock_open',
-                        title:'Регистрация',
+                        title:'Реєстрація',
                         route:'/signup'
                     }
                 ]

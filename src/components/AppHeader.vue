@@ -38,8 +38,11 @@
                 }
             },
         computed:{
+            isUserAuth(){
+                return this.$store.getters.isUserAuth
+            },
             menuItems(){
-                return [
+                return this.isUserAuth?[
                     {
                         icon:'visibility',
                         title:'Навчання',
@@ -59,7 +62,8 @@
                         icon:'exit_to_app',
                         title:'Вихід',
                         route:'/logout'
-                    },
+                    }
+                    ]:[
                     {
                         icon:'input',
                         title:'Вхід',

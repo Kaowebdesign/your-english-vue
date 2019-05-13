@@ -24,6 +24,10 @@
                     <v-icon left>{{item.icon}}</v-icon> 
                     {{item.title}}
                 </v-btn>
+                <v-btn flat @click.prevent="signout" v-if="isUserAuth">
+                    <v-icon left>exit_to_app</v-icon> 
+                    Вихід
+                </v-btn>
             </v-toolbar-items>
         </v-toolbar>
     </div>
@@ -57,11 +61,6 @@
                         icon:'account_circle',
                         title:'Профіль',
                         route:'/profile'
-                    },
-                    {
-                        icon:'exit_to_app',
-                        title:'Вихід',
-                        route:'/logout'
                     }
                     ]:[
                     {
@@ -75,6 +74,11 @@
                         route:'/signup'
                     }
                 ]
+            }
+        },
+        methods:{
+            signout(){
+                this.$store.dispatch('SIGNOUT');
             }
         }
     }

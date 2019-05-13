@@ -4,7 +4,8 @@ import router from './router'
 import store from './store'
 import firebaseConfig from './config/firebase'
 import firebase from 'firebase'
-import Vuetify from 'vuetify';
+import Vuetify from 'vuetify'
+
 
 Vue.use(Vuetify)
 

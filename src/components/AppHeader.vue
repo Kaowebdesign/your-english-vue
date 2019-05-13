@@ -24,12 +24,26 @@
                     <v-icon left>{{item.icon}}</v-icon> 
                     {{item.title}}
                 </v-btn>
-                <v-btn flat @click.prevent="signout" v-if="isUserAuth">
+                <v-btn flat @click.prevent="dialog=true" v-if="isUserAuth">
                     <v-icon left>exit_to_app</v-icon> 
                     Вихід
                 </v-btn>
             </v-toolbar-items>
         </v-toolbar>
+        <v-dialog v-model="dialog" max-width="290">
+            <v-card>
+                <v-card-title class="headline">Ви впевнені що хочете вийти?</v-card-title>
+                <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <v-btn color="red darken-1" flat="flat" @click="dialog = false">
+                        Ні
+                    </v-btn>
+                    <v-btn color="green darken-1" flat="flat" @click="signout">
+                        Так
+                    </v-btn>
+                </v-card-actions>
+             </v-card>
+        </v-dialog>
     </div>
 </template>
 
@@ -38,7 +52,8 @@
     export default {
          data(){
                 return{
-                    burger:false
+                    burger:false,
+                    dialog:false
                 }
             },
         computed:{
@@ -78,6 +93,7 @@
         },
         methods:{
             signout(){
+                this.dialog=false;
                 this.$store.dispatch('SIGNOUT');
             }
         }

@@ -1,12 +1,16 @@
 <template>
     <div>
-        <h1>Articles</h1>
+       <article-list></article-list>
     </div>
 </template>
 
 <script>
-
-    export default {}
+    import ArticleList from '../components/ArticleList'
+    export default {
+        components:{
+            ArticleList
+        }
+    }
 
 </script>
 

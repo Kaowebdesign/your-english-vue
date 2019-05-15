@@ -93,8 +93,9 @@
         },
         methods:{
             signout(){
-                this.dialog=false;
-                this.$store.dispatch('SIGNOUT');
+                this.dialog=false
+                this.$store.dispatch('SIGNOUT')
+                this.$router.push('/')
             }
         }
     }

@@ -7,7 +7,7 @@ export default {
                 imageId: 'egerg34g3rgfg34',
                 parts: 7,
                 level: ['A1', 'B1'],
-                rating: 4,
+                rating: 4.5,
                 ratingsCount: 100,
                 youtube_playlist_id: 'dgegrg234234'
             },

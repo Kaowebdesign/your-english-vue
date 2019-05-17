@@ -4,58 +4,49 @@
         <v-flex xs12 sm10 md8 offset-sm1 offset-md2>
             <v-container fluid>
                 <v-layout row>
-                    <v-flex>
+                    <v-flex xs8 md9>
                         <v-text-field label="Пошук" v-model="searchArticle">
                         </v-text-field>
+                    </v-flex>
+                     <v-flex xs4 md3>
+                        <v-select label="Рівень" :items="levels" v-model="level" multiple>
+                        </v-select>
                     </v-flex>
                 </v-layout>
             </v-container>
         </v-flex>
         <v-flex v-for="article in filterArticles" :key="article.id" xs12 sm10 md8 offset-sm1 offset-md2>
-            <v-card color="info" class="white--text">
-                    <v-container fluid>
-                        <v-layout row>
-                            <v-flex xs4 md3>
-                               <v-card-media src="https://i.io.ua/img_su/large/0093/95/00939573_n4.jpeg?r=492804934">
-                               </v-card-media>
-                            </v-flex>
-                            <v-flex xs8 md9>
-                                <v-card-title>
-                                    <div>
-                                        <div><h2>{{article.title}}</h2></div>
-                                        <div><p>{{article.description}}</p></div>
-                                        <div><p>Рівень: {{getLevel(article.level)}} , {{article.parts}} частей</p> </div>
-                                    </div>
-                                </v-card-title>
-                                <v-card-actions>
-                                    <v-rating v-model="article.rating" color="yellow" readonly dense half-increments>
-                                    </v-rating>
-                                    <v-spacer></v-spacer>
-                                    <v-btn class="primary" flat>Читать</v-btn>
-                                </v-card-actions>
-                            </v-flex>
-                        </v-layout>
-                    </v-container>
-            </v-card>
+            <article-item :article="article"></article-item>
         </v-flex>
     </v-layout>
    </v-container>
 </template>
 
 <script>
+    import ArticleItem from './ArticleItem'
     export default {
+            data(){
+                return{
+                    searchArticle:null,
+                    level:[],
+                    levels:['A1','A2','B1','B2','C1','C2']
+                }
+            },
             computed:{
                 articles(){
                     return this.$store.getters.getArticle
                 },
                 filterArticles(){
-
+                    let article = this.articles;
+                    if(this.searchArticle)
+                        article=article.filter(mas => mas.title.toLowerCase().indexOf(this.searchArticle.toLowerCase())>=0)
+                    if(this.level.length)
+                        article=article.filter(mas => this.level.filter(val => mas.level.indexOf(val) !== -1).length > 0)
+                    return article
                 }
             },
-            methods:{
-                getLevel(level){
-                    return level.join('/');
-                }
+            components:{
+                ArticleItem
             }
     }
 </script>

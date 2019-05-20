@@ -1,5 +1,5 @@
 <template>
-   <v-card color="info" class="white--text">
+    <v-card color="info" class="white--text">
         <v-container fluid>
             <v-layout row>
                 <v-flex xs4 md3>
@@ -18,7 +18,7 @@
                         <v-rating v-model="article.rating" color="yellow" readonly dense half-increments>
                         </v-rating>
                         <v-spacer></v-spacer>
-                        <v-btn class="primary" flat :to="{name:'article', params:{id:article.id}}">Читати</v-btn>
+                        <v-btn class="primary" flat>Додати</v-btn>
                     </v-card-actions>
                 </v-flex>
             </v-layout>
@@ -31,7 +31,7 @@
     export default {
         props:{
             "article":{
-                type:Object,
+                type: Object,
                 required:true
             }
         },

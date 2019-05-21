@@ -31,7 +31,7 @@ export default {
                     articleTitle: '',
                     partTitle: '',
                     youtube_id: '',
-                    content: [{
+                    articlePart: [{
                             paragraph: [{
                                     orign: 'lorem reege ergerger ergerger etbrtb rtbrtbrb rtrtbrtb',
                                     trans: 'Це просто переклад отого набору тексту що ви бачите вище'
@@ -145,5 +145,6 @@ export default {
     },
     getters: {
         getArticle: (state) => state.articles,
+        getParts: (state) => state.articlePart
     }
 }

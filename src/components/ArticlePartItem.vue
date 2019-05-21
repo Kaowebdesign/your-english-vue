@@ -4,7 +4,7 @@
             <v-card-title primary-title class="headline">{{part.title}}</v-card-title>
             <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn flat class="primary">Відкрити</v-btn>
+                <v-btn flat class="primary" :to="{name:'articlePart',params:{articleId:articleId,partId:part.id}}">Відкрити</v-btn>
             </v-card-actions>
         </v-card>
     </div>

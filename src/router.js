@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from './views/Home.vue'
 import Articles from './views/Articles.vue'
 import Article from './views/Article.vue'
+import ArticlePart from './views/ArticlePart.vue'
 import Profile from './views/Profile.vue'
 import Signin from './views/Signin.vue'
 import Signup from './views/Signup.vue'
@@ -33,7 +34,7 @@ export default new Router({
             path: '/article/:articleId/part/:partId',
             name: 'articlePart',
             props: true,
-            component: articlePart
+            component: ArticlePart
         },
         {
             path: '/vocabulary',

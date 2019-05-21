@@ -1,7 +1,7 @@
 <template>
     <v-container grid-list-md v-if="article">
         <v-layout row wrap>
-            <v-flex xs12 xs10 offset-sm-1>
+            <v-flex xs12 sm10 offset-sm-1>
                 <article-details :article="article"></article-details>
             </v-flex>
             <v-flex v-for="part in article.parts" :key="part.id" xs12 md10 offset-sm-1>

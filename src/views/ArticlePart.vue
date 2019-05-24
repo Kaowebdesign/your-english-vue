@@ -2,19 +2,20 @@
     <v-container grid-list-md  v-if="part">
         <v-layout row wrap>
             <v-flex xs12 sm10 offset-sm-1>
-                <!-- Content -->
+                <article-part-content :part="part"></article-part-content>
             </v-flex>
              <v-flex xs12 sm10 offset-sm-1>
-                <!-- Words -->
+                <!-- <article-part-words :words="part.words"></article-part-words> -->
             </v-flex>
         </v-layout>
     </v-container>
 </template>
 
 <script>
+    import ArticlePartContent from '../components/ArticlePartContent'
     export default {
         props:{
-            'articleID':{
+            'articleId':{
                 type:String,
                 required:true
             },
@@ -23,10 +24,13 @@
                 required:true
             }
         },
-        computed:{
+        computed:{ 
             part(){
-                let val = this.$store.getters.getParts.find(el => el.articleId == this.articleId && el.partId == this.partId)
+                return this.$store.getters.getParts.find(b => b.articleId == this.articleId && b.articlePartId == this.partId)
             }
+        },
+        components:{
+            ArticlePartContent
         }
     }
 </script>

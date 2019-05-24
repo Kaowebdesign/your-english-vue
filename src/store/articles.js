@@ -1,7 +1,7 @@
 export default {
     state: {
         articles: [{
-                id: 'frf34g33g4rg40',
+                id: 'firstarticleid',
                 title: 'The firth book about little boy - 1 ',
                 description: 'this is a firth book about my program',
                 imageId: 'egerg34g3rgfg34',
@@ -10,7 +10,7 @@ export default {
                 ratingsCount: 100,
                 youtube_playlist_id: 'dgegrg234234',
                 parts: [{
-                        id: 'gdfg34gre',
+                        id: 'firstpartid',
                         title: 'Caption 1',
                         youtube_id: 'hg2g3g3g'
                     },
@@ -24,62 +24,7 @@ export default {
                         title: 'Caption 3',
                         youtube_id: 'leohhdht5yd'
                     }
-                ],
-                articleParts: [{
-                    articleId: '',
-                    articlePartId: '',
-                    articleTitle: '',
-                    partTitle: '',
-                    youtube_id: '',
-                    articlePart: [{
-                            paragraph: [{
-                                    orign: 'lorem reege ergerger ergerger etbrtb rtbrtbrb rtrtbrtb',
-                                    trans: 'Це просто переклад отого набору тексту що ви бачите вище'
-                                },
-                                {
-                                    orign: 'lorem reege ergerger ergerger etbrtb rtbrtbrb rtrtbrtb',
-                                    trans: 'Це просто переклад отого набору тексту що ви бачите вище'
-                                },
-                                {
-                                    orign: 'lorem reege ergerger ergerger etbrtb rtbrtbrb rtrtbrtb',
-                                    trans: 'Це просто переклад отого набору тексту що ви бачите вище'
-                                },
-                            ]
-                        },
-                        {
-                            paragraph: [{
-                                    orign: 'lorem reege ergerger ergerger etbrtb rtbrtbrb rtrtbrtb',
-                                    trans: 'Це просто переклад отого набору тексту що ви бачите вище'
-                                },
-                                {
-                                    orign: 'lorem reege ergerger ergerger etbrtb rtbrtbrb rtrtbrtb',
-                                    trans: 'Це просто переклад отого набору тексту що ви бачите вище'
-                                },
-                                {
-                                    orign: 'lorem reege ergerger ergerger etbrtb rtbrtbrb rtrtbrtb',
-                                    trans: 'Це просто переклад отого набору тексту що ви бачите вище'
-                                }
-                            ]
-                        }
-                    ],
-                    words: [{
-                            orignWord: 'Lorem 1',
-                            transWord: 'Привіт 1'
-                        },
-                        {
-                            orignWord: 'Lorem 2',
-                            transWord: 'Привіт 2'
-                        },
-                        {
-                            orignWord: 'Lorem 3',
-                            transWord: 'Привіт 3'
-                        },
-                        {
-                            orignWord: 'Lorem 4',
-                            transWord: 'Привіт 4'
-                        }
-                    ]
-                }]
+                ]
             },
             {
                 id: 'frf34g3ewrrg40',
@@ -133,7 +78,62 @@ export default {
                     }
                 ]
             }
-        ]
+        ],
+        articleParts: [{
+            articleId: 'firstarticleid',
+            articlePartId: 'firstpartid',
+            articleTitle: 'The firth book about little boy - 1 ',
+            partTitle: 'Caption 1',
+            youtube_id: 'hg2g3g3g',
+            content: [{
+                    paragraph: [{
+                            orign: 'lorem reege ergerger ergerger etbrtb rtbrtbrb rtrtbrtb',
+                            trans: 'Це просто переклад отого набору тексту що ви бачите вище'
+                        },
+                        {
+                            orign: 'lorem reege ergerger ergerger etbrtb rtbrtbrb rtrtbrtb',
+                            trans: 'Це просто переклад отого набору тексту що ви бачите вище'
+                        },
+                        {
+                            orign: 'lorem reege ergerger ergerger etbrtb rtbrtbrb rtrtbrtb',
+                            trans: 'Це просто переклад отого набору тексту що ви бачите вище'
+                        },
+                    ]
+                },
+                {
+                    paragraph: [{
+                            orign: 'lorem reege ergerger ergerger etbrtb rtbrtbrb rtrtbrtb',
+                            trans: 'Це просто переклад отого набору тексту що ви бачите вище'
+                        },
+                        {
+                            orign: 'lorem reege ergerger ergerger etbrtb rtbrtbrb rtrtbrtb',
+                            trans: 'Це просто переклад отого набору тексту що ви бачите вище'
+                        },
+                        {
+                            orign: 'lorem reege ergerger ergerger etbrtb rtbrtbrb rtrtbrtb',
+                            trans: 'Це просто переклад отого набору тексту що ви бачите вище'
+                        }
+                    ]
+                }
+            ],
+            words: [{
+                    orignWord: 'Lorem 1',
+                    transWord: 'Привіт 1'
+                },
+                {
+                    orignWord: 'Lorem 2',
+                    transWord: 'Привіт 2'
+                },
+                {
+                    orignWord: 'Lorem 3',
+                    transWord: 'Привіт 3'
+                },
+                {
+                    orignWord: 'Lorem 4',
+                    transWord: 'Привіт 4'
+                }
+            ]
+        }]
     },
     mutations: {
         SET_ARTICLE(state, payload) {
@@ -145,6 +145,6 @@ export default {
     },
     getters: {
         getArticle: (state) => state.articles,
-        getParts: (state) => state.articlePart
+        getParts: (state) => state.articleParts
     }
 }

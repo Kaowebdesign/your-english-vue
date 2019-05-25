@@ -1,10 +1,10 @@
 <template>
     <v-container grid-list-md v-if="article">
         <v-layout row wrap>
-            <v-flex xs12 sm10 offset-sm-1>
+            <v-flex xs10 offset-xs1>
                 <article-details :article="article"></article-details>
             </v-flex>
-            <v-flex v-for="part in article.parts" :key="part.id" xs12 md10 offset-sm-1>
+            <v-flex v-for="part in article.parts" :key="part.id" xs10 offset-xs1>
                 <article-part-item :part="part" :articleId="article.id"></article-part-item>
             </v-flex>
         </v-layout>

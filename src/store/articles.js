@@ -84,34 +84,34 @@ export default {
             articlePartId: 'firstpartid',
             articleTitle: 'The firth book about little boy - 1 ',
             partTitle: 'Caption 1',
-            youtube_id: 'hg2g3g3g',
+            youtube_id: 'AZQW0_R9Nj8',
             content: [{
-                    paragraph: [{
-                            orign: 'lorem reege ergerger ergerger etbrtb rtbrtbrb rtrtbrtb',
-                            trans: 'Це просто переклад отого набору тексту що ви бачите вище'
+                    sentences: [{
+                            orign: "Here is Prospero, the Duke of Milan, with his wife, and daughter Miranda. ",
+                            trans: 'Это Просперо, герцог Миланский, с женой и дочерью Мирандой.'
                         },
                         {
-                            orign: 'lorem reege ergerger ergerger etbrtb rtbrtbrb rtrtbrtb',
-                            trans: 'Це просто переклад отого набору тексту що ви бачите вище'
+                            orign: "When his wife dies, Prospero sees nobody. Some women look after Miranda.",
+                            trans: 'Когда его жена умерла, Просперо никого не хотел видеть. Некоторые женщины присматривают за Мирандой.'
                         },
                         {
-                            orign: 'lorem reege ergerger ergerger etbrtb rtbrtbrb rtrtbrtb',
-                            trans: 'Це просто переклад отого набору тексту що ви бачите вище'
+                            orign: "I'm learning magic - Prospero tells his brother, Antonio. Look after Melan for me.",
+                            trans: 'Я изучаю магию, - говорит Просперо своему брату Антонио. Заботься о Мелане для меня.'
                         },
                     ]
                 },
                 {
-                    paragraph: [{
-                            orign: 'lorem reege ergerger ergerger etbrtb rtbrtbrb rtrtbrtb',
-                            trans: 'Це просто переклад отого набору тексту що ви бачите вище'
+                    sentences: [{
+                            orign: "Here is Prospero, the Duke of Milan, with his wife, and daughter Miranda.",
+                            trans: 'Это Просперо, герцог Миланский, с женой и дочерью Мирандой.'
                         },
                         {
-                            orign: 'lorem reege ergerger ergerger etbrtb rtbrtbrb rtrtbrtb',
-                            trans: 'Це просто переклад отого набору тексту що ви бачите вище'
+                            orign: "When his wife dies, Prospero sees nobody. Some women look after Miranda.",
+                            trans: 'Когда его жена умерла, Просперо никого не хотел видеть. Некоторые женщины присматривают за Мирандой.'
                         },
                         {
-                            orign: 'lorem reege ergerger ergerger etbrtb rtbrtbrb rtrtbrtb',
-                            trans: 'Це просто переклад отого набору тексту що ви бачите вище'
+                            orign: "I'm learning magic - Prospero tells his brother, Antonio. Look after Melan for me.",
+                            trans: 'Я изучаю магию, - говорит Просперо своему брату Антонио. Заботься о Мелане для меня.'
                         }
                     ]
                 }

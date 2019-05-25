@@ -5,9 +5,11 @@ import store from './store'
 import firebaseConfig from './config/firebase'
 import firebase from 'firebase'
 import Vuetify from 'vuetify'
+import VueYouTubeEmbed from 'vue-youtube-embed'
 
 
 Vue.use(Vuetify)
+Vue.use(VueYouTubeEmbed)
 
 firebase.initializeApp(firebaseConfig)
 

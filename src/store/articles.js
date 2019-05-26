@@ -117,20 +117,24 @@ export default {
                 }
             ],
             words: [{
-                    orignWord: 'Lorem 1',
-                    transWord: 'Привіт 1'
+                    orignWord: 'Duke',
+                    transWord: 'Лорд'
                 },
                 {
-                    orignWord: 'Lorem 2',
-                    transWord: 'Привіт 2'
+                    orignWord: 'daughter',
+                    transWord: 'дочка'
                 },
                 {
-                    orignWord: 'Lorem 3',
-                    transWord: 'Привіт 3'
+                    orignWord: 'learning',
+                    transWord: 'вивчати'
                 },
                 {
-                    orignWord: 'Lorem 4',
-                    transWord: 'Привіт 4'
+                    orignWord: 'magic',
+                    transWord: 'магія'
+                },
+                {
+                    orignWord: 'look after',
+                    transWord: 'доглядати'
                 }
             ]
         }]

@@ -5,7 +5,7 @@
                 <article-part-content :part="part"></article-part-content>
             </v-flex>
              <v-flex xs12>
-                <!-- <article-part-words :words="part.words"></article-part-words> -->
+                <article-part-words :words="part.words"></article-part-words>
             </v-flex>
         </v-layout>
     </v-container>
@@ -13,6 +13,7 @@
 
 <script>
     import ArticlePartContent from '../components/ArticlePartContent'
+    import ArticlePartWords from '../components/ArticlePartWords'
     export default {
         props:{
             'articleId':{
@@ -30,7 +31,8 @@
             }
         },
         components:{
-            ArticlePartContent
+            ArticlePartContent,
+            ArticlePartWords
         }
     }
 </script>

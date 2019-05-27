@@ -12,6 +12,7 @@
 </template>
 
 <script>
+    import Vue from 'vue'
     import ArticlePartContent from '../components/ArticlePartContent'
     import ArticlePartWords from '../components/ArticlePartWords'
     export default {
@@ -25,10 +26,27 @@
                 required:true
             }
         },
-        computed:{ 
-            part(){
-                return this.$store.getters.getParts.find(b => b.articleId == this.articleId && b.articlePartId == this.partId)
+        data(){
+            return{
+                part:null
             }
+        },
+        computed:{ 
+            // part(){
+            //     return this.$store.getters.getParts.find(b => b.articleId == this.articleId && b.articlePartId == this.partId)
+            // }
+        },
+        created(){
+            Vue.$db.collection('articleParts')
+                .where('articleId','==',this.articleId)
+                .where('articlePartId','==',this.partId)
+                .get()
+                .then(querySnapshot => {
+                    querySnapshot.forEach(s => {
+                        this.part = s.data()
+                    });
+                })
+                .catch(error => console.log(error))
         },
         components:{
             ArticlePartContent,

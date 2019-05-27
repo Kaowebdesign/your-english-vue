@@ -2,7 +2,7 @@ import Vue from 'vue'
 
 export default {
     state: {
-        articles:[],
+        articles:[]
         // articles: [{
         //         id: 'firstarticleid',
         //         title: 'The firth book about little boy - 1 ',
@@ -82,65 +82,65 @@ export default {
         //         ]
         //     }
         // ],
-        articleParts: [{
-            articleId: 'firstarticleid',
-            articlePartId: 'firstpartid',
-            articleTitle: 'The firth book about little boy - 1 ',
-            partTitle: 'Caption 1',
-            youtube_id: 'AZQW0_R9Nj8',
-            content: [{
-                    sentences: [{
-                            orign: "Here is Prospero, the Duke of Milan, with his wife, and daughter Miranda. ",
-                            trans: 'Это Просперо, герцог Миланский, с женой и дочерью Мирандой.'
-                        },
-                        {
-                            orign: "When his wife dies, Prospero sees nobody. Some women look after Miranda.",
-                            trans: 'Когда его жена умерла, Просперо никого не хотел видеть. Некоторые женщины присматривают за Мирандой.'
-                        },
-                        {
-                            orign: "I'm learning magic - Prospero tells his brother, Antonio. Look after Melan for me.",
-                            trans: 'Я изучаю магию, - говорит Просперо своему брату Антонио. Заботься о Мелане для меня.'
-                        },
-                    ]
-                },
-                {
-                    sentences: [{
-                            orign: "Here is Prospero, the Duke of Milan, with his wife, and daughter Miranda.",
-                            trans: 'Это Просперо, герцог Миланский, с женой и дочерью Мирандой.'
-                        },
-                        {
-                            orign: "When his wife dies, Prospero sees nobody. Some women look after Miranda.",
-                            trans: 'Когда его жена умерла, Просперо никого не хотел видеть. Некоторые женщины присматривают за Мирандой.'
-                        },
-                        {
-                            orign: "I'm learning magic - Prospero tells his brother, Antonio. Look after Melan for me.",
-                            trans: 'Я изучаю магию, - говорит Просперо своему брату Антонио. Заботься о Мелане для меня.'
-                        }
-                    ]
-                }
-            ],
-            words: [{
-                    orignWord: 'Duke',
-                    transWord: 'Лорд'
-                },
-                {
-                    orignWord: 'daughter',
-                    transWord: 'дочка'
-                },
-                {
-                    orignWord: 'learning',
-                    transWord: 'вивчати'
-                },
-                {
-                    orignWord: 'magic',
-                    transWord: 'магія'
-                },
-                {
-                    orignWord: 'look after',
-                    transWord: 'доглядати'
-                }
-            ]
-        }]
+        // articleParts: [{
+        //     articleId: 'firstarticleid',
+        //     articlePartId: 'firstpartid',
+        //     articleTitle: 'The firth book about little boy - 1 ',
+        //     partTitle: 'Caption 1',
+        //     youtube_id: 'AZQW0_R9Nj8',
+        //     content: [{
+        //             sentences: [{
+        //                     orign: "Here is Prospero, the Duke of Milan, with his wife, and daughter Miranda. ",
+        //                     trans: 'Это Просперо, герцог Миланский, с женой и дочерью Мирандой.'
+        //                 },
+        //                 {
+        //                     orign: "When his wife dies, Prospero sees nobody. Some women look after Miranda.",
+        //                     trans: 'Когда его жена умерла, Просперо никого не хотел видеть. Некоторые женщины присматривают за Мирандой.'
+        //                 },
+        //                 {
+        //                     orign: "I'm learning magic - Prospero tells his brother, Antonio. Look after Melan for me.",
+        //                     trans: 'Я изучаю магию, - говорит Просперо своему брату Антонио. Заботься о Мелане для меня.'
+        //                 },
+        //             ]
+        //         },
+        //         {
+        //             sentences: [{
+        //                     orign: "Here is Prospero, the Duke of Milan, with his wife, and daughter Miranda.",
+        //                     trans: 'Это Просперо, герцог Миланский, с женой и дочерью Мирандой.'
+        //                 },
+        //                 {
+        //                     orign: "When his wife dies, Prospero sees nobody. Some women look after Miranda.",
+        //                     trans: 'Когда его жена умерла, Просперо никого не хотел видеть. Некоторые женщины присматривают за Мирандой.'
+        //                 },
+        //                 {
+        //                     orign: "I'm learning magic - Prospero tells his brother, Antonio. Look after Melan for me.",
+        //                     trans: 'Я изучаю магию, - говорит Просперо своему брату Антонио. Заботься о Мелане для меня.'
+        //                 }
+        //             ]
+        //         }
+        //     ],
+        //     words: [{
+        //             orignWord: 'Duke',
+        //             transWord: 'Лорд'
+        //         },
+        //         {
+        //             orignWord: 'daughter',
+        //             transWord: 'дочка'
+        //         },
+        //         {
+        //             orignWord: 'learning',
+        //             transWord: 'вивчати'
+        //         },
+        //         {
+        //             orignWord: 'magic',
+        //             transWord: 'магія'
+        //         },
+        //         {
+        //             orignWord: 'look after',
+        //             transWord: 'доглядати'
+        //         }
+        //     ]
+        // }]
     },
     mutations: {
         SET_ARTICLE(state, payload) {
@@ -176,7 +176,7 @@ export default {
                         })
                     }
                     article.parts=parts
-                    
+
                     articles.push(article)
                 })
                 commit('SET_ARTICLE',articles)
@@ -185,7 +185,6 @@ export default {
         }
     },
     getters: {
-        getArticle: (state) => state.articles,
-        getParts: (state) => state.articleParts
+        getArticle: (state) => state.articles
     }
 }

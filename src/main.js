@@ -15,9 +15,9 @@ Vue.use(VueYouTubeEmbed)
 const firebaseApp = firebase.initializeApp(firebaseConfig)
 const db = firebaseApp.firestore()
 
-db.settings({
-    timestampsInSnapshots: true
-});
+// db.settings({
+//     timestampsInSnapshots: true
+// });
 
 Vue.$db = db
 
@@ -32,5 +32,6 @@ new Vue({
         firebase.auth().onAuthStateChanged(function(user) {
             vm.$store.dispatch('STATE_CHANGED', user)
         });
+        this.$store.dispatch('LOAD_ARTICLES')
     }
 }).$mount('#app')

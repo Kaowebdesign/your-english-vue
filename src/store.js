@@ -5,6 +5,7 @@ import 'vuetify/dist/vuetify.min.css'
 import commonModule from './store/common'
 import userModule from './store/user'
 import articleModule from './store/articles'
+import userDataModule from './store/userData'
 
 
 Vue.use(Vuetify)
@@ -15,6 +16,7 @@ export default new Vuex.Store({
     modules: {
         commonModule,
         userModule,
-        articleModule
+        articleModule,
+        userDataModule
     }
 })

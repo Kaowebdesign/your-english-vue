@@ -18,7 +18,7 @@
                         <!-- <v-rating v-model="article.rating" color="yellow" readonly dense half-increments>
                         </v-rating> -->
                         <v-spacer></v-spacer>
-                        <v-btn class="primary" flat>Додати</v-btn>
+                        <v-btn class="primary" flat v-if="canLoadArticle(article.id)" @click="loadArticle">Додати</v-btn>
                     </v-card-actions>
                 </v-flex>
             </v-layout>
@@ -28,6 +28,7 @@
 
 <script>
     import * as articleHelper from '../helpers/article'
+    import {mapGetters} from 'vuex'
     export default {
         props:{
             "article":{
@@ -35,8 +36,21 @@
                 required:true
             }
         },
+        computed:{
+            ...mapGetters(['isUserAuth','userData','getProcessing']),
+        },
         methods:{
-            getArticleLevel:articleHelper.getLevel
+            getArticleLevel:articleHelper.getLevel,
+            canLoadArticle(articleId){
+                let article = this.getUserDataArticle(articleId)
+                return this.isUserAuth && !this.getProcessing && !article
+            },
+            getUserDataArticle(articleId){
+                return this.userData.articles[articleId]
+            },
+            loadArticle(articleId){
+                this.$store.dispatch('ADD_USER_ARTICLE',articleId)
+            }
         }
     }
 </script>

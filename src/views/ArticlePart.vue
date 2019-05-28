@@ -44,7 +44,7 @@
                 .then(querySnapshot => {
                     querySnapshot.forEach(s => {
                         this.part = s.data()
-                    });
+                    })
                 })
                 .catch(error => console.log(error))
         },

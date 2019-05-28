@@ -38,6 +38,7 @@ export default {
             firebase.auth().signInWithEmailAndPassword(payload.email, payload.password)
                 .then(() => {
                     commit('SET_PROCESSING', false)
+                    commit('LOAD_USER_DATA', payload.uid)
                 })
                 .catch(function(error) {
                     commit('SET_PROCESSING', false)
@@ -56,6 +57,7 @@ export default {
         }
     },
     getters: {
+        userId: (state) => state.userId,
         isUserAuth: (state) => state.user.isAuth
     }
 }

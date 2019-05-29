@@ -26,6 +26,7 @@ export default {
                     let userData = data.exists ? data.data() : defaultUserData
                     if (!userData.articles)
                         userData.articles = {}
+
                     for (var key in userData.articles) {
                         if (userData.articles.hasOwnProperty(key))
                             userData.articles[key].addedDate = userData.articles[key].addedDate.toDate()
@@ -39,7 +40,7 @@ export default {
         },
         ADD_USER_ARTICLE({ commit, getters }, payload) {
             commit('SET_PROCESSING', true)
-            let userDataRef = Vue.$db.collection('userData').doc(getters.userId)
+            let userDataRef = Vue.$db.collection('userData').doc(getters.uid)
             let article = {
                 addedDate: new Date(),
                 parts: {}

@@ -4,18 +4,18 @@ export default {
     state: {
         user: {
             isAuth: false,
-            userId: null
+            uid: null
         }
     },
     mutations: {
         SET_USER(state, payload) {
             state.user.isAuth = true
-            state.user.userId = payload
+            state.user.uid = payload
         },
         UNSET_USER(state) {
             state.user = {
                 isAuth: false,
-                userId: null
+                uid: null
             }
         }
     },
@@ -38,7 +38,6 @@ export default {
             firebase.auth().signInWithEmailAndPassword(payload.email, payload.password)
                 .then(() => {
                     commit('SET_PROCESSING', false)
-                    commit('LOAD_USER_DATA', payload.uid)
                 })
                 .catch(function(error) {
                     commit('SET_PROCESSING', false)
@@ -50,6 +49,7 @@ export default {
         },
         STATE_CHANGED({ commit }, payload) {
             if (payload) {
+                commit('LOAD_USER_DATA', payload.uid)
                 commit("SET_USER", payload.uid)
             } else {
                 commit("UNSET_USER")
@@ -57,7 +57,7 @@ export default {
         }
     },
     getters: {
-        userId: (state) => state.user.userId,
+        uid: (state) => state.user.uid,
         isUserAuth: (state) => state.user.isAuth
     }
 }

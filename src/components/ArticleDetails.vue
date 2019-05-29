@@ -18,7 +18,12 @@
                         <!-- <v-rating v-model="article.rating" color="yellow" readonly dense half-increments>
                         </v-rating> -->
                         <v-spacer></v-spacer>
-                        <v-btn class="primary" flat v-if="canLoadArticle(article.id)" @click="loadArticle">Додати</v-btn>
+                        <v-btn class="primary" flat v-if="canLoadArticle(article.id)" @click="loadArticle(article.id)">Додати</v-btn>
+                         <!-- <br> Книга скачана {{getArticleAddedDate(article.id)}} -->
+                        <div v-if="getUserDataArticle(article.id)">
+                            <v-icon color="white">work_outline</v-icon>
+                            Книга скачана {{getArticleAddedDate(article.id)}}
+                        </div>
                     </v-card-actions>
                 </v-flex>
             </v-layout>
@@ -50,6 +55,10 @@
             },
             loadArticle(articleId){
                 this.$store.dispatch('ADD_USER_ARTICLE',articleId)
+            },
+            getArticleAddedDate(articleId){
+                let article = this.getUserDataArticle(articleId)
+                return article.addedDate.toLocaleDateString()
             }
         }
     }

@@ -57,7 +57,7 @@ export default {
         }
     },
     getters: {
-        userId: (state) => state.userId,
+        userId: (state) => state.user.userId,
         isUserAuth: (state) => state.user.isAuth
     }
 }

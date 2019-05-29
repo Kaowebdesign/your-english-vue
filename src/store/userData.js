@@ -23,14 +23,18 @@ export default {
             let userDataRef = Vue.$db.collection('userData').doc(payload)
             userDataRef.get()
                 .then((data) => {
-                    let userData = data.exist ? data.data() : defaultUserData
+                    let userData = data.exists ? data.data() : defaultUserData
                     if (!userData.articles)
                         userData.articles = {}
+                    for (var key in userData.articles) {
+                        if (userData.articles.hasOwnProperty(key))
+                            userData.articles[key].addedDate = userData.articles[key].addedDate.toDate()
+                    }
                     commit('SET_USER_DATA', userData)
-                    commit('SET_PROCESSING', true)
+                    commit('SET_PROCESSING', false)
                 })
                 .catch(() => {
-                    commit('SET_PROCESSING', true)
+                    commit('SET_PROCESSING', false)
                 })
         },
         ADD_USER_ARTICLE({ commit, getters }, payload) {

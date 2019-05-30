@@ -53,6 +53,10 @@ export default {
                 }, { merge: true })
                 .then(() => {
                     commit('ADD_USER_ARTICLE', { articleId: payload, article: article })
+                    commit('SET_PROCESSING', false)
+                })
+                .catch(() => {
+                    commit('SET_PROCESSING', false)
                 })
         }
     },

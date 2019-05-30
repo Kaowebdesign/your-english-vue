@@ -15,8 +15,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
     modules: {
         commonModule,
-        userModule,
         articleModule,
-        userDataModule
+        userDataModule,
+        userModule
     }
 })

@@ -19,9 +19,7 @@
                         </v-rating> -->
                         <v-spacer></v-spacer>
                         <v-btn class="primary" flat v-if="canLoadArticle(article.id)" @click="loadArticle(article.id)">Додати</v-btn>
-                         <!-- <br> Книга скачана {{getArticleAddedDate(article.id)}} -->
                         <div v-if="getUserDataArticle(article.id)">
-                            <p>THISSSS</p>
                             <v-icon color="white">work_outline</v-icon>
                             Книга скачана {{getArticleAddedDate(article.id)}}
                         </div>
@@ -49,9 +47,11 @@
             getArticleLevel:articleHelper.getLevel,
             canLoadArticle(articleId){
                 let article = this.getUserDataArticle(articleId)
+                console.log('article -> ',article)
                 return this.isUserAuth && !this.getProcessing && !article
             },
             getUserDataArticle(articleId){
+                console.log('getUserDataArticle ->', this.userData);
                 return this.userData.articles[articleId]
             },
             loadArticle(articleId){

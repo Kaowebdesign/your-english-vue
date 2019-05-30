@@ -31,6 +31,7 @@ export default {
                         if (userData.articles.hasOwnProperty(key))
                             userData.articles[key].addedDate = userData.articles[key].addedDate.toDate()
                     }
+
                     commit('SET_USER_DATA', userData)
                     commit('SET_PROCESSING', false)
                 })
@@ -40,7 +41,7 @@ export default {
         },
         ADD_USER_ARTICLE({ commit, getters }, payload) {
             commit('SET_PROCESSING', true)
-            let userDataRef = Vue.$db.collection('userData').doc(getters.uid)
+            let userDataRef = Vue.$db.collection('userData').doc(getters.userId)
             let article = {
                 addedDate: new Date(),
                 parts: {}
@@ -51,7 +52,7 @@ export default {
                     }
                 }, { merge: true })
                 .then(() => {
-                    commit('ADD_USER_ARTICLE', { articeId: payload, article: article })
+                    commit('ADD_USER_ARTICLE', { articleId: payload, article: article })
                 })
         }
     },

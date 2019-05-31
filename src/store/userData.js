@@ -15,6 +15,12 @@ export default {
         },
         ADD_USER_ARTICLE(state, payload) {
             Vue.set(state.userData.articles, payload.articleId, payload.article)
+        },
+        ADD_USER_ARTICLE_PART(state, payload) {
+            Vue.set(state.userData.articles[payload.articleId].parts, payload.partId, { addedDate: payload.timestamp })
+        },
+        UPDATE_USER_ARTICLE_PART_LAST_OPEN(state, payload) {
+            Vue.set(state.userData.articles[payload.articleId].parts[payload.partId], 'lastOpen', payload.timestamp)
         }
     },
     actions: {
@@ -58,6 +64,20 @@ export default {
                 .catch(() => {
                     commit('SET_PROCESSING', false)
                 })
+        },
+        UPDATA_USER_ARTICLE_PART({ commit, getters }, payload) {
+            let userDataRef = Vue.$db.collection('userData').doc(getters.userId)
+            let timestamp = new Date()
+            if (!getters.userData.articles[payload.articleId].parts[payload.partId]) {
+                userDataRef.update({
+                        [`artile.${payload.articleId}.parts.${payload.pardId}.addedDate`]: timestamp
+                    })
+                    .then(() => commit('ADD_USER_ARTICLE_PART', { articleId: payload.articleId, partId: payload.partId, timestamp: timestamp }))
+            }
+            userDataRef.update({
+                    [`artile.${payload.articleId}.parts.${payload.pardId}.lastOpen`]: timestamp
+                })
+                .then(() => commit('UPDATE_USER_ARTICLE_PART_LAST_OPEN', { articleId: payload.articleId, partId: payload.partId, timestamp: timestamp }))
         }
     },
     getters: {

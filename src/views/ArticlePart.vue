@@ -46,6 +46,9 @@
                         this.part = s.data()
                     })
                 })
+                .then(()=>{
+                    this.$store.dispatch('UPDATA_USER_ARTICLE_PART',{articleId:this.articleId, partId: this.partId})
+                })
                 .catch(error => console.log(error))
         },
         components:{

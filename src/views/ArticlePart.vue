@@ -7,6 +7,25 @@
              <v-flex xs12>
                 <article-part-words :words="part.words"></article-part-words>
             </v-flex>
+            <v-flex xs12 class="text-xs-center">
+                <v-dialog v-model="finishDialog" persistent max-width="50%">
+                    <v-btn v-if="!finishedDate" slot="activator" color="success" dark @click="finishDialog = true">
+                        <v-icon>check</v-icon>
+                    </v-btn>
+                    <v-card>
+                        <v-card-title primary-title>
+                            <div class="headline">Вітаємо з завершенням цієї частини</div>
+                        </v-card-title>
+                        <v-card-text>
+                            <span>Моя оцінка </span>
+                            <v-rating v-model="rating" color="success" large></v-rating>
+                        </v-card-text>
+                        <v-card-actions>
+                            
+                        </v-card-actions>
+                    </v-card>
+                </v-dialog>
+            </v-flex>
         </v-layout>
     </v-container>
 </template>
@@ -28,13 +47,15 @@
         },
         data(){
             return{
-                part:null
+                part:null,
+                finishDialog:false,
+                rating:0
             }
         },
         computed:{ 
-            // part(){
-            //     return this.$store.getters.getParts.find(b => b.articleId == this.articleId && b.articlePartId == this.partId)
-            // }
+            finishedDate(){
+                return this.$store.getters.userData.articles[this.articleId].parts[this.partId].finishedDate
+            }
         },
         created(){
             Vue.$db.collection('articleParts')

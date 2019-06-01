@@ -21,7 +21,7 @@
                         <v-btn class="primary" flat v-if="canLoadArticle(article.id)" @click="loadArticle(article.id)">Додати</v-btn>
                         <div v-if="getUserDataArticle(article.id)">
                             <v-icon color="white">work_outline</v-icon>
-                            Книга скачана {{getArticleAddedDate(article.id)}}
+                            Книга скачана {{getArticleAddedDate(article.id) | formatDate}}
                         </div>
                     </v-card-actions>
                 </v-flex>
@@ -47,11 +47,9 @@
             getArticleLevel:articleHelper.getLevel,
             canLoadArticle(articleId){
                 let article = this.getUserDataArticle(articleId)
-                console.log('article -> ',article)
                 return this.isUserAuth && !this.getProcessing && !article
             },
             getUserDataArticle(articleId){
-                console.log('getUserDataArticle ->', this.userData);
                 return this.userData.articles[articleId]
             },
             loadArticle(articleId){
@@ -59,7 +57,7 @@
             },
             getArticleAddedDate(articleId){
                 let article = this.getUserDataArticle(articleId)
-                return article.addedDate.toLocaleDateString()
+                return article.addedDate
             }
         }
     }

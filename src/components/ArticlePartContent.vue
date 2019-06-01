@@ -8,7 +8,7 @@
             <youtube :video-id="part.youtube_id" :player-width="playerWidth"></youtube>
         </div>
         <div class="mt-2">
-            <v-tabs v-model="tabsMode" slider-color="black">
+            <v-tabs v-model="tabMode" slider-color="black">
                 <v-tab :key="'englishText'" ripple>
                     English
                 </v-tab>

@@ -12,8 +12,9 @@
                     {{error}}
                     </v-alert>
                 <v-form v-model="valid">
-                    <v-text-field prepend-icon="person" name="login" label="E-mail" type="email" required v-model="email" :rules="emailRules"></v-text-field>
-                    <v-text-field id="password" prepend-icon="lock" name="password" label="Пароль" type="password" required v-model="password" :rules="passwordRules"></v-text-field>
+                    <v-text-field prepend-icon="person" name="name" label="Ім'я" type="text" required v-model="name" :rules="nameRules"></v-text-field>
+                    <v-text-field prepend-icon="email" name="login" label="E-mail" type="email" required v-model="email" :rules="emailRules"></v-text-field>
+                    <v-text-field id="password" prepend-icon="lock" name="Пароль" label="Пароль" type="password" required v-model="password" :rules="passwordRules"></v-text-field>
                 </v-form>
                 </v-card-text>
                 <v-card-actions>
@@ -34,6 +35,9 @@
                 email:null,
                 password:null,
                 valid:false,
+                 nameRules:[
+                    (v) => !!v || "Будь-ласка введіть ваше ім'я",
+                ],
                 emailRules:[
                     (v) => !!v || 'Будь-ласка введіть е-мейл',
                     (v) => /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'Неправильний е-мейл'
@@ -64,7 +68,7 @@
         },
         methods:{
             signup(){
-                this.$store.dispatch('SIGNUP',{email:this.email,password:this.password});
+                this.$store.dispatch('SIGNUP',{email:this.email,password:this.password,name:this.name});
             }
         }
     }

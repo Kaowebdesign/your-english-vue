@@ -4,13 +4,19 @@ export default {
     state: {
         user: {
             isAuth: false,
-            uid: null
+            uid: null,
+            email: null,
+            name: null
         }
     },
     mutations: {
         SET_USER(state, payload) {
             state.user.isAuth = true
-            state.user.uid = payload
+            state.user.uid = payload.uid
+            state.user.email = payload.email
+        },
+        SET_USER_NAME(state, payload) {
+            state.user.name = payload
         },
         UNSET_USER(state) {
             state.user = {
@@ -25,6 +31,8 @@ export default {
             commit('CLEAN_ERROR')
             firebase.auth().createUserWithEmailAndPassword(payload.email, payload.password)
                 .then(() => {
+                    firebase.auth().currentUser.updateProfile({ displayName: payload.name })
+                        .then(() => commit('SET_USER_NAME', payload.name))
                     commit('SET_PROCESSING', false)
                 })
                 .catch(function(error) {
@@ -49,7 +57,8 @@ export default {
         },
         STATE_CHANGED({ commit, dispatch }, payload) {
             if (payload) {
-                commit("SET_USER", payload.uid)
+                commit("SET_USER", { uid: payload.uid, email: payload.email })
+                commit("SET_USER_NAME", payload.displayName)
                 dispatch("LOAD_USER_DATA", payload.uid)
             } else {
                 commit("UNSET_USER")
@@ -58,6 +67,8 @@ export default {
     },
     getters: {
         userId: (state) => state.user.uid,
+        userName: (state) => state.user.name,
+        userEmail: (state) => state.user.email,
         isUserAuth: (state) => state.user.isAuth
     }
 }

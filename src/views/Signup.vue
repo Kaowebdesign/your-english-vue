@@ -32,6 +32,7 @@
     export default {
         data(){
             return{
+                name:null,
                 email:null,
                 password:null,
                 valid:false,

@@ -16,7 +16,8 @@ export default {
             state.user.email = payload.email
         },
         SET_USER_NAME(state, payload) {
-            state.user.name = payload
+            if (payload)
+                state.user.name = payload
         },
         SET_USER_EMAIL(state, payload) {
             state.user.email = payload
@@ -70,13 +71,13 @@ export default {
         CHANGE_USER_PROFILE_DATA({ commit }, payload) {
             let user = firebase.auth().currentUser
             let credential = firebase.auth.EmailAuthProvider.credential(payload.email, payload.password)
-            console.log('payload -> ', payload)
+
             commit('SET_PROCESSING', true)
             commit('CLEAN_ERROR')
 
             user.reauthenticateWithCredential(credential).then(function() {
                 let currentUser = firebase.auth().currentUser
-                if (payload.changeType == 'name') {
+                if (payload.changeData == 'name') {
                     currentUser.updateProfile({ displayName: payload.newName })
                         .then(() => {
                             commit("SET_USER_NAME", payload.newName)
@@ -88,7 +89,7 @@ export default {
                             commit('SET_ERROR', error.message)
                         })
                 }
-                if (payload.changeType == 'email') {
+                if (payload.changeData == 'email') {
                     currentUser.updateEmail(payload.newEmail)
                         .then(() => {
                             commit("SET_USER_EMAIL", payload.newEmail)
@@ -100,7 +101,7 @@ export default {
                             commit('SET_ERROR', error.message)
                         })
                 }
-                if (payload.changeType == 'password') {
+                if (payload.changeData == 'password') {
                     currentUser.updatePassword(payload.newPassword)
                         .then(() => {
                             commit('SET_PROCESSING', false)

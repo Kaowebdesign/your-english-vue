@@ -16,7 +16,7 @@
                 <article-part-content :part="part"></article-part-content>
             </v-flex>
              <v-flex xs12>
-                <article-part-words :words="part.words"></article-part-words>
+                <article-part-words :data="part.words"></article-part-words>
             </v-flex>
             <v-flex xs12 class="text-xs-center">
                 <v-btn v-if="!finishedDate" slot="activator" color="success" dark @click="finishDialog = true">

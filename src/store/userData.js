@@ -37,6 +37,9 @@ export default {
                     if (!userData.articles)
                         userData.articles = {}
 
+                    if (!userData.words)
+                        userData.words = {}
+
                     commit('SET_USER_DATA', userData)
                     commit('SET_PROCESSING', false)
                 })
@@ -50,6 +53,30 @@ export default {
             let article = {
                 addedDate: new Date(),
                 parts: {}
+            }
+            userDataRef.set({
+                    articles: {
+                        [payload]: article
+                    }
+                }, { merge: true })
+                .then(() => {
+                    commit('ADD_USER_ARTICLE', { articleId: payload, article: article })
+                    commit('SET_PROCESSING', false)
+                })
+                .catch(() => {
+                    commit('SET_PROCESSING', false)
+                })
+        },
+        ADD_USER_WORD({ commit, getters }, payload) {
+            commit('SET_PROCESSING', true)
+            let userDataRef = Vue.$db.collection('userData').doc(getters.userId)
+            let word = {
+                orignWord: payload.orignWord,
+                transWord: payload.transWord,
+                type: payload.type,
+                addedDate: new Date(),
+                bucket: 1,
+                nextShowDate: new Date()
             }
             userDataRef.set({
                     articles: {

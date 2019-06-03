@@ -18,6 +18,9 @@ export default {
         SET_USER_NAME(state, payload) {
             state.user.name = payload
         },
+        SET_USER_EMAIL(state, payload) {
+            state.user.email = payload
+        },
         UNSET_USER(state) {
             state.user = {
                 isAuth: false,
@@ -63,6 +66,55 @@ export default {
             } else {
                 commit("UNSET_USER")
             }
+        },
+        CHANGE_USER_PROFILE_DATA({ commit }, payload) {
+            let user = firebase.auth().currentUser
+            let credential = firebase.auth.EmailAuthProvider.credential(payload.email, payload.password)
+            console.log('payload -> ', payload)
+            commit('SET_PROCESSING', true)
+            commit('CLEAN_ERROR')
+
+            user.reauthenticateWithCredential(credential).then(function() {
+                let currentUser = firebase.auth().currentUser
+                if (payload.changeType == 'name') {
+                    currentUser.updateProfile({ displayName: payload.newName })
+                        .then(() => {
+                            commit("SET_USER_NAME", payload.newName)
+                            commit('SET_PROCESSING', false)
+
+                        })
+                        .catch(error => {
+                            commit('SET_PROCESSING', false)
+                            commit('SET_ERROR', error.message)
+                        })
+                }
+                if (payload.changeType == 'email') {
+                    currentUser.updateEmail(payload.newEmail)
+                        .then(() => {
+                            commit("SET_USER_EMAIL", payload.newEmail)
+                            commit('SET_PROCESSING', false)
+
+                        })
+                        .catch(error => {
+                            commit('SET_PROCESSING', false)
+                            commit('SET_ERROR', error.message)
+                        })
+                }
+                if (payload.changeType == 'password') {
+                    currentUser.updatePassword(payload.newPassword)
+                        .then(() => {
+                            commit('SET_PROCESSING', false)
+
+                        })
+                        .catch(error => {
+                            commit('SET_PROCESSING', false)
+                            commit('SET_ERROR', error.message)
+                        })
+                }
+            }).catch(function(error) {
+                commit('SET_PROCESSING', false)
+                commit('SET_ERROR', error.message)
+            });
         }
     },
     getters: {

@@ -1,4 +1,6 @@
 import firebase from 'firebase'
+import router from '../router'
+import { EventBus } from '../infostructure/eventBus'
 
 export default {
     state: {
@@ -82,7 +84,7 @@ export default {
                         .then(() => {
                             commit("SET_USER_NAME", payload.newName)
                             commit('SET_PROCESSING', false)
-
+                            EventBus.notify('user-profile-data-chenged')
                         })
                         .catch(error => {
                             commit('SET_PROCESSING', false)
@@ -94,7 +96,7 @@ export default {
                         .then(() => {
                             commit("SET_USER_EMAIL", payload.newEmail)
                             commit('SET_PROCESSING', false)
-
+                            EventBus.notify('user-profile-data-chenged')
                         })
                         .catch(error => {
                             commit('SET_PROCESSING', false)
@@ -105,7 +107,7 @@ export default {
                     currentUser.updatePassword(payload.newPassword)
                         .then(() => {
                             commit('SET_PROCESSING', false)
-
+                            EventBus.notify('user-profile-data-chenged')
                         })
                         .catch(error => {
                             commit('SET_PROCESSING', false)

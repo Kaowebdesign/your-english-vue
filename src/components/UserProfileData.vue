@@ -90,6 +90,14 @@
                     changeData:this.changeData
                 })
             }
+        },
+        created(){
+            this.$bus.$on('user-profile-data-chenged',()=>{
+                this.dialog = false
+            })
+        },
+        beforeDestroy(){
+            this.$bus.$off('user-profile-data-chenged')
         }
     }
 </script>

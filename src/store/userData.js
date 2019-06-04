@@ -16,6 +16,9 @@ export default {
         ADD_USER_ARTICLE(state, payload) {
             Vue.set(state.userData.articles, payload.articleId, payload.article)
         },
+        ADD_USER_WORD(state, payload) {
+            Vue.set(state.userData.words, payload.wordId, payload.word)
+        },
         ADD_USER_ARTICLE_PART(state, payload) {
             Vue.set(state.userData.articles[payload.articleId].parts, payload.partId, { addedDate: payload.timestamp })
         },
@@ -79,12 +82,12 @@ export default {
                 nextShowDate: new Date()
             }
             userDataRef.set({
-                    articles: {
-                        [payload]: article
+                    words: {
+                        [payload.key]: word
                     }
                 }, { merge: true })
                 .then(() => {
-                    commit('ADD_USER_ARTICLE', { articleId: payload, article: article })
+                    commit('ADD_USER_WORD', { wordId: payload.key, word: word })
                     commit('SET_PROCESSING', false)
                 })
                 .catch(() => {

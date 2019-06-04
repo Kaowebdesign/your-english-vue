@@ -24,7 +24,7 @@
                             <v-card-text>{{props.item.transWord}}</v-card-text>
                             <v-card-actions>
                                 <v-spacer></v-spacer>
-                                <v-btn fab dark small color="primary" @click="addWord(props.item)">
+                                <v-btn fab dark small color="primary" @click="addWord(props.item)" :disabled="checking || processing">
                                     <v-icon dark>add</v-icon>
                                 </v-btn>
                                 <v-snackbar v-model="snackbar" bottom light color="error">
@@ -61,6 +61,9 @@
                     }
                 }
                 return words
+            },
+            processing(){
+                return this.$store.getters.getProcessing
             }
         },
         data(){
@@ -70,11 +73,13 @@
                         rowsPerPage: 4
                     },
                     snackbar:false,
-                    snackbarText:null
+                    snackbarText:null,
+                    cheking:false
             }
         },
          methods:{
             addWord(unoWord){
+                this.checking = true
                 let userWords = this.$store.getters.userData.words
                 let wordAdded = userWords[unoWord.key]
 
@@ -88,6 +93,7 @@
                 }else{
                     this.$store.dispatch('ADD_USER_WORD', unoWord)
                 }
+                this.checking = false
             }
         } 
     }

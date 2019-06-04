@@ -8,6 +8,7 @@ import Vuetify from 'vuetify'
 import VueYouTubeEmbed from 'vue-youtube-embed'
 import "firebase/firestore"
 import FormatDate from './filters/formatDate'
+import { setupBus } from './infostructure/eventBus'
 
 
 Vue.use(Vuetify)
@@ -26,7 +27,7 @@ db.settings({
 
 Vue.$db = db
 
-
+setupBus()
 
 new Vue({
     router,

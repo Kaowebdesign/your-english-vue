@@ -18,6 +18,7 @@
                     <v-tab-item :key="'articles'" class="pt-2">
                     </v-tab-item>
                     <v-tab-item :key="'words'" class="pt-2">
+                          <user-profile-words></user-profile-words>
                     </v-tab-item>
                 </v-tabs>
             </v-flex>
@@ -27,6 +28,7 @@
 
 <script>
     import userProfileData from '../components/UserProfileData'
+    import userProfileWords from '../components/userProfileWords'
     export default {
         data(){
             return{
@@ -34,7 +36,8 @@
             }
         },
         components:{
-            userProfileData 
+            userProfileData,
+            userProfileWords
         }
     }
 

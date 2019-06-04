@@ -68,11 +68,6 @@
                         route:'/articles'
                     },
                     {
-                        icon:'extension',
-                        title:'Словник',
-                        route:'/vocabulary'
-                    },
-                    {
                         icon:'account_circle',
                         title:'Профіль',
                         route:'/profile'
@@ -95,7 +90,7 @@
             signout(){
                 this.dialog=false
                 this.$store.dispatch('SIGNOUT')
-                this.$router.push('/')
+                this.$router.push({name:'home'})
             }
         }
     }

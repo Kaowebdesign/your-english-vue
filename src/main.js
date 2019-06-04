@@ -34,10 +34,6 @@ new Vue({
     store,
     render: h => h(App),
     created() {
-        let vm = this
-        firebase.auth().onAuthStateChanged(function(user) {
-            vm.$store.dispatch('STATE_CHANGED', user)
-        });
         this.$store.dispatch('LOAD_ARTICLES')
     }
 }).$mount('#app')

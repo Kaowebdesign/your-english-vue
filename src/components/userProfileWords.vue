@@ -3,7 +3,7 @@
         <v-card v-if="currentWord" class="mt-2" dark>
             <v-card-title>
                 <div class="headline">
-                    <original-word :word="currentWord"></original-word>
+                    <original-word :word="currentWord" :showAudio="true"></original-word>
                 </div>
             </v-card-title>
             <v-divider></v-divider>
@@ -32,7 +32,7 @@
                     <div v-for="(word, index) in words" :key="index">
                         <v-list-tile @click="selectWord(word)">
                             <div class="title pa-1">
-                                <original-word :word="word"></original-word>
+                                <original-word :word="word" :showAudio="false"></original-word>
                             </div>
                         </v-list-tile>
                     </div>
@@ -85,6 +85,9 @@
             }
         },
         mounted(){
+            this.$bus.$on('userword:updated',()=>{
+                this.setWords()
+            })
             this.setWords()
         },
         components:{

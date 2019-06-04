@@ -10,7 +10,7 @@
             <v-avatar slot="activator" v-if="word.type == 2" color="deep-orange" size="10"></v-avatar>
             <span>Фразове дієслово</span>
         </v-tooltip>
-        <v-icon v-if="canSoundWord" @click="soundWord(word)">music_note</v-icon>
+        <v-icon v-if="canSoundWord" @click="soundword(word)">music_note</v-icon>
     </div>
 </template>
 
@@ -18,16 +18,40 @@
 
     export default {
         props:{
-            word:Object,
+            word:Object
         },
         data(){
             return{
                 canSoundWord:false,
-                voice:null
+                voice:null,
+                showAudio:{
+                    type:Boolean,
+                    default:false
+                }
             }
         },
-        method:{
-            
+        methods:{
+            soundword(word){
+                let msg = new SpeechSynthesisUtterance()
+                msg.voice = this.voice
+                msg.rate = 1
+                msg.pitch = 1
+                msg.volume = 1
+                msg.text = word.orignWord
+
+                speechSynthesis.speak(msg)
+            }
+        },
+        created(){
+            if(this.showAudio){
+                if('speechSynthesis' in window){
+                    let englishVoice = speechSynthesis.getVoices().filter(v => v.name.toLowerCase().indexOf('english') >=1)
+                    if(englishVoice.length){
+                        this.canSoundWord = true
+                        this.voice = englishVoice[0]
+                    }
+                }
+            }
         }
     }
 </script>

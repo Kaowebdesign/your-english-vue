@@ -44,6 +44,7 @@
 
 <script>
     import OriginalWord from './OrignWord'
+
     export default {
         data(){
             return{

@@ -18,16 +18,16 @@
 
     export default {
         props:{
-            word:Object
+            word:Object,
+            showAudio: {
+                type: Boolean,
+                default: false
+            }
         },
         data(){
             return{
                 canSoundWord:false,
-                voice:null,
-                showAudio:{
-                    type:Boolean,
-                    default:false
-                }
+                voice:null
             }
         },
         methods:{
@@ -40,18 +40,30 @@
                 msg.text = word.orignWord
 
                 speechSynthesis.speak(msg)
+            },
+            setSpeech(){
+                return new Promise(
+                    function (resolve, reject) {
+                        let synth = window.speechSynthesis;
+                        let id = setInterval(() => {
+                            let englishVoice = speechSynthesis.getVoices().filter(v => v.name.toLowerCase().indexOf('english') >=1)
+                            if (englishVoice !== 0) {
+                                resolve(englishVoice[0]);
+                                clearInterval(id);
+                            }
+                        }, 500);
+                    }
+                )
             }
         },
         created(){
-            if(this.showAudio){
+            if(this.showAudio)
                 if('speechSynthesis' in window){
-                    let englishVoice = speechSynthesis.getVoices().filter(v => v.name.toLowerCase().indexOf('english') >=1)
-                    if(englishVoice.length){
+                    this.setSpeech().then((voice) => {
                         this.canSoundWord = true
-                        this.voice = englishVoice[0]
-                    }
+                        this.voice = voice
+                    })
                 }
-            }
         }
     }
 </script>

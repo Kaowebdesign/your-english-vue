@@ -7,7 +7,6 @@ import ArticlePart from './views/ArticlePart.vue'
 import Profile from './views/Profile.vue'
 import Signin from './views/Signin.vue'
 import Signup from './views/Signup.vue'
-import Vocabulary from './views/Vocabulary.vue'
 import Store from './store'
 
 Vue.use(Router)

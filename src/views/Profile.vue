@@ -28,7 +28,7 @@
 
 <script>
     import userProfileData from '../components/UserProfileData'
-    import userProfileWords from '../components/userProfileWords'
+    import userProfileWords from '../components/UserProfileWords'
     export default {
         data(){
             return{

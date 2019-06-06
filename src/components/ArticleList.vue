@@ -25,6 +25,12 @@
 <script>
     import ArticleItem from './ArticleItem'
     export default {
+            props:{
+                "myArticles":{
+                    type:Boolean,
+                    default:false
+                }
+            },
             data(){
                 return{
                     searchArticle:null,
@@ -37,12 +43,17 @@
                     return this.$store.getters.getArticle
                 },
                 filterArticles(){
-                    let article = this.articles;
+                    let articles = this.articles;
+                    if(this.myArticles){
+                        articles=articles.filter(mas => this.$store.getters.userData.articles[mas.id])
+                    }
                     if(this.searchArticle)
-                        article=article.filter(mas => mas.title.toLowerCase().indexOf(this.searchArticle.toLowerCase())>=0)
+                        articles=articles.filter(mas => 
+                        mas.title.toLowerCase().indexOf(this.searchArticle.toLowerCase())>=0 ||
+                        mas.description.toLowerCase().indexOf(this.searchArticle.toLowerCase())>=0)
                     if(this.level.length)
-                        article=article.filter(mas => this.level.filter(val => mas.level.indexOf(val) !== -1).length > 0)
-                    return article
+                        articles=articles.filter(mas => this.level.filter(val => mas.level.indexOf(val) !== -1).length > 0)
+                    return articles
                 }
             },
             components:{

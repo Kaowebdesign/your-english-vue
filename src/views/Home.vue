@@ -92,18 +92,18 @@
           </v-flex>
         </v-layout>
       </section>
-      <section>
+      <section v-if="articles.length">
           <v-container>
-            <v-layout>
-              <v-flex>
+            <v-layout row wrap justify-center>
+              <v-flex xs12 md4>
                 <v-card class="elevation-0 transparent">
                   <v-card-title class="layout justify-center">
                     <h2>Випадкові книги</h2>
                   </v-card-title>
                   <v-card-text>
-                    <v-carousel>
-                      <v-carousel-item v-for="(article , i) in articles" :key="i" :src="article.imageUrl" @click="goToArticle(article.id)">
-
+                    <v-carousel xs12>
+                      <v-carousel-item class="articleCarousel" v-for="(article , i) in articles" :key="i" :src="article.imageUrl" @click="goToArticle(article.id)">
+                          <div class="articleTitle">{{article.title}}</div>
                       </v-carousel-item>
                     </v-carousel>
                   </v-card-text>
@@ -206,6 +206,31 @@ export default {
 
        return result
     }
+  },
+  methods:{
+    goToArticle(id){
+      this.$router.push({name:'article',params:{id:id}})
+    }
   }
 }
 </script>
+
+<style lang="scss" scoped>
+  .articleTitle{
+    position:absolute;
+    top: 0;
+    left:0;
+    width: 100%;
+    padding: 20px;
+    background: rgba(0,0,0,.5);
+    color: #fff;
+    text-align:center;
+  }
+  .articleCarousel{
+    cursor:pointer;
+    transition: .6s;
+    &:hover{
+      opacity: .9;
+    }
+  }
+</style>

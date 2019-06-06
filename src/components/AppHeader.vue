@@ -1,6 +1,6 @@
 <template>
     <div>
-        <v-navigation-drawer absolute temporary v-model="burger" class="hidden-md-and-up">
+        <v-navigation-drawer absolute temporary v-model="burger" class="hidden-md-and-up ">
             <v-list>
                 <v-list-tile v-for="(item,i) in menuItems" :key="`mobMenuItems${i}`">
                     <v-list-tile-action>
@@ -13,7 +13,7 @@
                 </v-list-tile>
             </v-list>
         </v-navigation-drawer>
-        <v-toolbar app dark class="primary">
+        <v-toolbar app dark class="cyan darken-2">
             <v-toolbar-side-icon @click.stop="burger = !burger" class="hidden-md-and-up"></v-toolbar-side-icon>
             <router-link to="/" tag="span" class="home-link">
                 <v-toolbar-title  v-text="'your-english'"></v-toolbar-title>

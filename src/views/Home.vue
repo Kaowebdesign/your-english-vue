@@ -10,15 +10,16 @@
             class="white--text"
           >
             <!-- <img src="assets/vuetify.png" alt="Vuetify.js" height="200"> -->
-            <h1 class="white--text mb-2 display-1 text-xs-center">Parallax Template</h1>
-            <div class="subheading mb-3 text-xs-center">Powered by Vuetify</div>
+            <h1 class="white--text mb-2 display-1 text-xs-center mainCaption">Your english</h1>
+            <div class="mb-3 text-xs-center duoHomeCaption">Не відкладай на потім!</div>
+            <div class="mb-3 text-xs-center duoHomeCaption">Почни вивчати англійську прямо зараз!</div>
             <v-btn
-              class="blue lighten-2 mt-5"
+              class="cyan darken-1 mt-5"
               dark
               large
-              href="/pre-made-themes"
+              href="/articles"
             >
-              Get Started
+              Почати
             </v-btn>
           </v-layout>
         </v-parallax>
@@ -116,15 +117,15 @@
       <section>
         <v-parallax src="https://firebasestorage.googleapis.com/v0/b/your-english-dp.appspot.com/o/orig.jpg?alt=media&token=19124d5a-b6fb-4eb0-97ea-3a8e0f7f6146" height="380">
           <v-layout column align-center justify-center>
-            <div class="headline white--text mb-3 text-xs-center">Web development has never been easier</div>
-            <em>Kick-start your application today</em>
+            <div class="headline white--text mb-3 text-xs-center">Досить гаяти час!</div>
+            <em>Прокачай свої скіли прямо зараз</em>
             <v-btn
-              class="blue lighten-2 mt-5"
+              class="cyan darken-1 mt-5"
               dark
               large
               href="/pre-made-themes"
             >
-              Get Started
+              Почати
             </v-btn>
           </v-layout>
         </v-parallax>
@@ -216,6 +217,24 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+    .v-parallax::after{
+      content:"";
+      display: block;
+      position: absolute;
+      top:0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(0,0,0,.5);
+      z-index: 1;
+    }
+  .duoHomeCaption{
+    text-shadow: 1px 1px 9px #000;
+    font-size: 18px;
+  }
+  .mainCaption{
+    text-shadow: 1px 1px 9px #000;
+  }
   .articleTitle{
     position:absolute;
     top: 0;
@@ -224,6 +243,7 @@ export default {
     padding: 20px;
     background: rgba(0,0,0,.5);
     color: #fff;
+    font-size: 16px;
     text-align:center;
   }
   .articleCarousel{

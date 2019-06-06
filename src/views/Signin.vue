@@ -3,7 +3,7 @@
         <v-layout align-center justify-center>
             <v-flex xs12 sm8 md4>
             <v-card class="elevation-12">
-                <v-toolbar dark color="primary">
+                <v-toolbar dark color="cyan darken-2">
                 <v-toolbar-title>Вхід</v-toolbar-title>
                 <v-spacer></v-spacer>
                 </v-toolbar>
@@ -18,7 +18,7 @@
                 </v-card-text>
                 <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn color="primary" @click.prevent="signin" :disabled="processing || !valid">Увійти</v-btn>
+                <v-btn dark color="cyan darken-1" @click.prevent="signin" :disabled="processing || !valid">Увійти</v-btn>
                 </v-card-actions>
             </v-card>
             </v-flex>

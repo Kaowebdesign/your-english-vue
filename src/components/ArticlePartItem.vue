@@ -1,16 +1,14 @@
 <template>
     <div>
-        <v-card color="accent" class="white--text">
-            <v-card-title primary-title class="headline">{{part.title}}</v-card-title>
-            <v-card-title primary-title class="headline">{{part.id}}</v-card-title>
+        <v-card color="cyan lighten-1" class="white--text mb-3">
+            <v-card-title primary-title class="headline pb-0">{{part.title}}</v-card-title>
             <v-card-actions>
-                
                 <div v-if="finishedDate">
                     <v-icon dark> check</v-icon>
                     Частина прочитана: {{ finishedDate | formatDate}}
                 </div>
                 <v-spacer></v-spacer> 
-                <v-btn flat class="primary" v-if="isUserArticleLoaded" :to="{name:'articlePart',params:{articleId:articleId,partId:part.id}}">Відкрити</v-btn>
+                <v-btn flat dark class="cyan darken-4" v-if="isUserArticleLoaded" :to="{name:'articlePart',params:{articleId:articleId,partId:part.id}}">Відкрити</v-btn>
             </v-card-actions>
         </v-card>
     </div>

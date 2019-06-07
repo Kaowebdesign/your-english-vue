@@ -4,6 +4,9 @@
             <v-flex xs10 offset-xs1>
                 <article-details :article="article"></article-details>
             </v-flex>
+            <v-flex xs10 offset-xs1>
+                <h2 class="pa-3 headline text-xs-center">Відео складається з наступних частин</h2>
+            </v-flex>
             <v-flex v-for="part in article.parts" :key="part.id" xs10 offset-xs1>
                 <article-part-item :part="part" :articleId="article.id"></article-part-item>
             </v-flex>

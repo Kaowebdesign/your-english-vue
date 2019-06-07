@@ -24,7 +24,7 @@
         <v-toolbar app dark class="cyan darken-2">
             <v-toolbar-side-icon @click.stop="burger = !burger" class="hidden-md-and-up"></v-toolbar-side-icon>
             <router-link to="/" tag="span" class="home-link">
-                <v-toolbar-title  v-text="'your-english'"></v-toolbar-title>
+                <v-toolbar-title class="font-weight-light mainLogo" v-text="'your-english'"></v-toolbar-title>
             </router-link>
             <v-spacer></v-spacer>
             <v-toolbar-items class="hidden-sm-and-down">
@@ -112,5 +112,8 @@
     }
     .home-link:hover{
         opacity: .7;
+    }
+    .mainLogo{
+        text-transform: uppercase;
     }
 </style>

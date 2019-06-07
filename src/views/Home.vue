@@ -34,9 +34,9 @@
         >
           <v-flex xs12 sm4 class="my-3">
             <div class="text-xs-center">
-              <h2 class="headline">The best way to start developing</h2>
+              <h2 class="headline">Як швидко підняти свій рівень англійського?</h2>
               <span class="subheading">
-                Cras facilisis mi vitae nunc 
+                Все дуже просто
               </span>
             </div>
           </v-flex>
@@ -46,45 +46,42 @@
                 <v-flex xs12 md4>
                   <v-card class="elevation-0 transparent">
                     <v-card-text class="text-xs-center">
-                      <v-icon x-large class="blue--text text--lighten-2">color_lens</v-icon>
+                      <v-icon x-large class="cyan--text text--darken-4">important_devices</v-icon>
                     </v-card-text>
                     <v-card-title primary-title class="layout justify-center">
-                      <div class="headline text-xs-center">Material Design</div>
+                      <div class="headline text-xs-center">Дивись</div>
                     </v-card-title>
                     <v-card-text>
-                      Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare. 
-                      Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
-                      Nullam in aliquet odio. Aliquam eu est vitae tellus bibendum tincidunt. Suspendisse potenti. 
+                      Для зареєстрованих користувачів доступно безліч відео. Від аудіокниг до найвідоміших сцен з різних фільмів.
+                      Матеріал підібраний відповідно до рівня складності, а отже кожен зможе знайти те що йому до вподоби.
                     </v-card-text>
                   </v-card>
                 </v-flex>
                 <v-flex xs12 md4>
                   <v-card class="elevation-0 transparent">
                     <v-card-text class="text-xs-center">
-                      <v-icon x-large class="blue--text text--lighten-2">flash_on</v-icon>
+                      <v-icon x-large class="cyan--text text--darken-4">hearing</v-icon>
                     </v-card-text>
                     <v-card-title primary-title class="layout justify-center">
-                      <div class="headline">Fast development</div>
+                      <div class="headline">Слухай</div>
                     </v-card-title>
                     <v-card-text>
-                      Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare. 
-                      Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
-                      Nullam in aliquet odio. Aliquam eu est vitae tellus bibendum tincidunt. Suspendisse potenti. 
+                      Значна частина матеріалу складається з аудіокниг. Сприймання мови на слух дуже важлива річ.
+                      Найшвидший спосіб вивчити мову це поринути в середовище де нею спілкуються. Починай слухати прямо зараз.
                     </v-card-text>
                   </v-card>
                 </v-flex>
                 <v-flex xs12 md4>
                   <v-card class="elevation-0 transparent">
                     <v-card-text class="text-xs-center">
-                      <v-icon x-large class="blue--text text--lighten-2">build</v-icon>
+                      <v-icon x-large class="cyan--text text--darken-4">g_translate</v-icon>
                     </v-card-text>
                     <v-card-title primary-title class="layout justify-center">
-                      <div class="headline text-xs-center">Completely Open Sourced</div>
+                      <div class="headline text-xs-center">Читай</div>
                     </v-card-title>
                     <v-card-text>
-                      Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare. 
-                      Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
-                      Nullam in aliquet odio. Aliquam eu est vitae tellus bibendum tincidunt. Suspendisse potenti. 
+                      Під кожним відео чи аудіо матеріалом ти зможеш знайти текст, що відноситься до даного ролика. Для того щоб тобі було легше
+                      внизу є панель із найскладнішими словами, для який доступний переклад.
                     </v-card-text>
                   </v-card>
                 </v-flex>
@@ -97,13 +94,13 @@
           <v-container>
             <v-layout row wrap justify-center>
               <v-flex xs12 md4>
+                 <h2 class="headline text-xs-center">Випадкові книги</h2>
                 <v-card class="elevation-0 transparent">
                   <v-card-title class="layout justify-center">
-                    <h2>Випадкові книги</h2>
                   </v-card-title>
                   <v-card-text>
-                    <v-carousel xs12>
-                      <v-carousel-item class="articleCarousel" v-for="(article , i) in articles" :key="i" :src="article.imageUrl" @click="goToArticle(article.id)">
+                    <v-carousel xs12 hide-delimiters height="450px">
+                      <v-carousel-item class="articleCarousel"  v-for="(article , i) in articles" :key="i" :src="article.imageUrl" @click="goToArticle(article.id)">
                           <div class="articleTitle">{{article.title}}</div>
                       </v-carousel-item>
                     </v-carousel>
@@ -125,7 +122,7 @@
               large
               href="/pre-made-themes"
             >
-              Почати
+              Прокачати
             </v-btn>
           </v-layout>
         </v-parallax>
@@ -137,22 +134,21 @@
             <v-flex xs12 sm4>
               <v-card class="elevation-0 transparent">
                 <v-card-title primary-title class="layout justify-center">
-                  <div class="headline">Company info</div>
+                  <div class="headline">Про проект</div>
                 </v-card-title>
                 <v-card-text>
-                  Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare. 
-                  Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
-                  Nullam in aliquet odio. Aliquam eu est vitae tellus bibendum tincidunt. Suspendisse potenti. 
+                  You english - це сховище крутих відеоматеріалів підібраних під різні рівні складності.
+                  Слухай, читай, перекладай, вивчай слова та підніми свій рівень англійської прямо зараз.
                 </v-card-text>
               </v-card>
             </v-flex>
             <v-flex xs12 sm4 offset-sm1>
               <v-card class="elevation-0 transparent">
                 <v-card-title primary-title class="layout justify-center">
-                  <div class="headline">Contact us</div>
+                  <div class="headline">Напишіть нам</div>
                 </v-card-title>
                 <v-card-text>
-                  Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare.
+                  Напиши, якщо з'явилися пропозиції щодо покращення даного додатку
                 </v-card-text>
                 <v-list class="transparent">
                   <v-list-tile>
@@ -160,7 +156,7 @@
                       <v-icon class="blue--text text--lighten-2">phone</v-icon>
                     </v-list-tile-action>
                     <v-list-tile-content>
-                      <v-list-tile-title>777-867-5309</v-list-tile-title>
+                      <v-list-tile-title>+38(098)-86-61-190</v-list-tile-title>
                     </v-list-tile-content>
                   </v-list-tile>
                   <v-list-tile>
@@ -168,7 +164,7 @@
                       <v-icon class="blue--text text--lighten-2">place</v-icon>
                     </v-list-tile-action>
                     <v-list-tile-content>
-                      <v-list-tile-title>Chicago, US</v-list-tile-title>
+                      <v-list-tile-title>Dnipro, UA</v-list-tile-title>
                     </v-list-tile-content>
                   </v-list-tile>
                   <v-list-tile>
@@ -176,7 +172,7 @@
                       <v-icon class="blue--text text--lighten-2">email</v-icon>
                     </v-list-tile-action>
                     <v-list-tile-content>
-                      <v-list-tile-title>john@vuetifyjs.com</v-list-tile-title>
+                      <v-list-tile-title>kaowebdev@gmail.com</v-list-tile-title>
                     </v-list-tile-content>
                   </v-list-tile>
                 </v-list>
@@ -234,6 +230,7 @@ export default {
   }
   .mainCaption{
     text-shadow: 1px 1px 9px #000;
+    text-transform: uppercase;
   }
   .articleTitle{
     position:absolute;
@@ -243,14 +240,17 @@ export default {
     padding: 20px;
     background: rgba(0,0,0,.5);
     color: #fff;
-    font-size: 16px;
+    font-size: 17px;
     text-align:center;
   }
   .articleCarousel{
     cursor:pointer;
     transition: .6s;
+    max-width: 350px;
+    height: 450px;
     &:hover{
       opacity: .9;
     }
   }
+
 </style>

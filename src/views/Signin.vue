@@ -22,7 +22,12 @@
                 </v-card-actions>
             </v-card>
              <v-card class="mt-5">
-                 <v-card-title class="display-1" ><p class="singTitle">Не маєш акаунту?</p></v-card-title>
+                 <v-card-title class="title font-weight-light text-xs-center" ><p class="singTitle ">Не маєш акаунту?</p></v-card-title>
+                 <v-card-title class="pt-0 title font-weight-light text-xs-center" ><p class="singTitle ">Зареєструйся прямо зараз!</p></v-card-title>
+                 <v-card-text class="pt-0 font-weight-light text-xs-center" >
+                     <v-btn dark color="cyan darken-1" :to="{name:'registration'}">Реєстрація</v-btn> 
+                 </v-card-text>
+                
              </v-card>
             </v-flex>
         </v-layout>
@@ -74,8 +79,10 @@
 
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
     .singTitle{
-        color:#ccc;
+        width: 100%;
+        color:#777;
+        margin:0;
     }
 </style>

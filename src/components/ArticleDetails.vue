@@ -1,5 +1,5 @@
 <template>
-    <v-card color="info" class="white--text">
+    <v-card color="cyan lighten-1" class="white--text">
         <v-container fluid>
             <v-layout row>
                 <v-flex xs4 md3>
@@ -18,7 +18,7 @@
                         <!-- <v-rating v-model="article.rating" color="yellow" readonly dense half-increments>
                         </v-rating> -->
                         <v-spacer></v-spacer>
-                        <v-btn class="primary" flat v-if="canLoadArticle(article.id)" @click="loadArticle(article.id)">Додати</v-btn>
+                        <v-btn class="cyan darken-4" dark flat v-if="canLoadArticle(article.id)" @click="loadArticle(article.id)">Завантажити</v-btn>
                         <div v-if="getUserDataArticle(article.id)">
                             <v-icon color="white">work_outline</v-icon>
                             Книга скачана {{getArticleAddedDate(article.id) | formatDate}}

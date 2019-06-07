@@ -1,7 +1,7 @@
 <template>
     <div>
         <v-container fluid grid-list-md>
-            <h2 class="mt-2 mb-2">Слова для вивчення</h2>
+            <h2 class="mt-2 mb-4 headline text-xs-center">Слова для вивчення</h2>
             <v-data-iterator :items="words"  
                             :hide-actions="true"
                             content-tag="v-layout" row wrap>
@@ -24,7 +24,7 @@
                             <v-card-text>{{props.item.transWord}}</v-card-text>
                             <v-card-actions>
                                 <v-spacer></v-spacer>
-                                <v-btn fab dark small color="primary" @click="addWord(props.item)" :disabled="checking || processing">
+                                <v-btn fab dark small color="cyan darken-3" @click="addWord(props.item)" :disabled="checking || processing">
                                     <v-icon dark>add</v-icon>
                                 </v-btn>
                                 <v-snackbar v-model="snackbar" bottom light color="error">

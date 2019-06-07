@@ -30,6 +30,9 @@
                                 <v-snackbar v-model="snackbar" bottom light color="error">
                                     <v-icon>warning</v-icon> {{snackbarText}}
                                 </v-snackbar>
+                                 <v-snackbar v-model="addedBar" bottom light color="success" >
+                                    <p class="addedText">{{addedBarText}}</p>
+                                </v-snackbar>
                             </v-card-actions>
                         </v-card>
                     </v-flex>
@@ -74,7 +77,9 @@
                     },
                     snackbar:false,
                     snackbarText:null,
-                    cheking:false
+                    cheking:false,
+                    addedBar:false,
+                    addedBarText:null
             }
         },
          methods:{
@@ -92,6 +97,8 @@
                     this.snackbarText = 'Ви вже додали дуже багато слів'
                 }else{
                     this.$store.dispatch('ADD_USER_WORD', unoWord)
+                    this.addedBar=true
+                    this.addedBarText='Слово було успішно додано'
                 }
                 this.checking = false
             }
@@ -100,5 +107,8 @@
 </script>
 
 <style lang="scss" scoped>
-
+    .addedText{
+        width: 100%;
+        text-align:center;
+    }
 </style>

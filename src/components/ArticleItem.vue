@@ -46,6 +46,9 @@
         &:hover .bookCard__titleWrap{
             opacity: 1;
         }
+        @media only screen and (max-width:480px) {
+            width: 300px;
+        }
     }
     .bookCard__titleWrap{
         position: absolute;

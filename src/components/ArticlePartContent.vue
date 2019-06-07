@@ -4,8 +4,8 @@
             <div class="display-1 text-xs-center">{{part.articleTitle}}</div>
             <div class="headline text-xs-center">{{part.partTitle}}</div>
         </div>  
-        <div class="text-xs-center mt-2 mb-2">
-            <youtube :video-id="part.youtube_id" :player-width="playerWidth"></youtube>
+        <div class="text-xs-center mt-2 mb-2 ">
+            <youtube :video-id="part.youtube_id" :player-width="playerWidth" class="videoWrap"></youtube>
         </div>
         <div class="mt-2">
             <v-tabs v-model="tabMode" slider-color="black">
@@ -28,15 +28,15 @@
                 </v-tab-item>
                 <v-tab-item :key="'doubleText'">
                     <v-container>
-                        <v-layout row wrap v-for="(paragraph, i) in part.content" :key="`pa2${i}`">
-                            <v-flex xs6>
+                        <v-layout row wrap v-for="(paragraph, i) in part.content" :key="`pa2${i}`" class="doubleTextWrap">
+                            <v-flex xs12 sm6>
                                 <div v-for="(sentence, j) in paragraph.sentences" :key="`pa2${i}sen2${j}_orig`" class="sentences" >
                                     <p class="ma-0" :style="textStyle">
                                         {{sentence.orign}}
                                     </p>
                                 </div>
                             </v-flex>
-                            <v-flex xs6>
+                            <v-flex xs12 sm6>
                                 <div v-for="(sentence, j) in paragraph.sentences" :key="`pa2${i}sen2${j}_trans`" class="sentences">
                                     <p class="ma-0"  :style="textStyle">
                                         {{sentence.trans}}
@@ -69,7 +69,7 @@
         computed:{
              playerWidth(){
                 switch (this.$vuetify.breakpoint.name) {
-                    case 'xs': return '220px'
+                    case 'xs': return '100%'
                     case 'sm': return '400px'
                     case 'md': return '500px'
                     case 'lg': return '600px'
@@ -103,7 +103,10 @@
 </script>
 
 <style lang="scss" scoped>
-    // .sentences{
-    //     display: inline-block;
-    // }
+    .doubleTextWrap{
+     @media only screen and (max-width:600px) {
+            display: flex;
+            flex-direction: column;
+        }
+    }
 </style>

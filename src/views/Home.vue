@@ -120,7 +120,7 @@
               class="cyan darken-1 mt-5"
               dark
               large
-              href="/pre-made-themes"
+              href="/articles"
             >
               Прокачати
             </v-btn>

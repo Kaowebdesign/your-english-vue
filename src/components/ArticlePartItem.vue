@@ -43,5 +43,9 @@
 </script>
 
 <style lang="scss" scoped>
-
+    .v-card__title--primary{
+         @media only screen and (max-width:768px) {
+            padding-top: 5px !important;
+        }
+    }
 </style>

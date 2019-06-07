@@ -15,8 +15,10 @@
                 </v-layout>
             </v-container>
         </v-flex>
-        <div v-for="article in filterArticles" :key="article.id">
-            <article-item :article="article"></article-item>
+        <div class="articlesWrap">
+            <div v-for="article in filterArticles" :key="article.id">
+                <article-item :article="article"></article-item>
+            </div>
         </div>
     </v-layout>
    </v-container>
@@ -63,5 +65,10 @@
 </script>
 
 <style lang="scss" scoped>
-
+    .articlesWrap{
+        display:flex;
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
 </style>

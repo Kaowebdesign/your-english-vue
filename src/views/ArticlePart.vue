@@ -6,7 +6,7 @@
                     <v-card-title primary-title>
                         <div class="headline">Ви завершили вивченя цієї частини: {{finishedDate | formatDate}}</div>
                     </v-card-title>
-                     <v-card-actions> 
+                     <v-card-actions class="articlesRating"> 
                         <span>Моя оцінка </span>
                         <v-rating v-model="printRating" color="success" readonly large></v-rating>
                     </v-card-actions>
@@ -113,5 +113,10 @@
 </script>
 
 <style lang="scss" scoped>
-
+    .articlesRating{
+        @media only screen and (max-width:600px) {
+            display: flex;
+            flex-direction: column;
+        }
+    }
 </style>

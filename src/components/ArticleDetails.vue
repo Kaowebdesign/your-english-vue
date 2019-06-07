@@ -1,12 +1,12 @@
 <template>
-    <v-card color="cyan lighten-1" class="white--text">
-        <v-container fluid>
-            <v-layout row>
-                <v-flex xs4 md3>
-                    <v-card-media :src="article.imageUrl">
+    <v-card color="cyan lighten-1" class="white--text articlesDescCard">
+        <v-container fluid class="articleDescCont">
+            <v-layout row class="articlesDescWrap">
+                <v-flex xs12 md3>
+                    <v-card-media :src="article.imageUrl" class="articlesDescImg">
                     </v-card-media>
                 </v-flex>
-                <v-flex xs8 md9>
+                <v-flex xs12 md9>
                     <v-card-title>
                         <div>
                             <div><h2>{{article.title}}</h2></div>
@@ -64,5 +64,26 @@
 </script>
 
 <style lang="scss" scoped>
-
+    .articlesDescWrap{
+         @media only screen and (max-width:768px) {
+            display: flex;
+            flex-direction: column !important;
+        }
+    }
+    .articlesDescCard{
+        @media only screen and (max-width:768px) {
+            max-width: 300px;
+            margin:0 auto;
+        }
+    }
+    .articlesDescImg{
+        @media only screen and (max-width:768px) {
+            max-height: 350px;
+        }
+    }
+    .articleDescCont{
+        @media only screen and (max-width:768px) {
+            padding: 5px;
+        }
+    }
 </style>

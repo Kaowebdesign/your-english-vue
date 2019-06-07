@@ -12,11 +12,11 @@
             </v-card-text>
             <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn dark small color="primary" @click="currentWord.showTrans = true" v-if="!currentWord.showTrans">
-                    <v-icon>visibility</v-icon> Переклад
+                <v-btn dark small color="cyan darken-1" @click="currentWord.showTrans = true" v-if="!currentWord.showTrans">
+                    <v-icon class="mr-2">visibility</v-icon> Переклад
                 </v-btn>
                 <v-btn small dark color="success" @click="processWord(currentWord)">
-                    <v-icon>check</v-icon> Запам'ятав(ла)
+                    <v-icon class="mr-2">check</v-icon> Запам'ятав(ла)
                 </v-btn>
             </v-card-actions>
         </v-card>

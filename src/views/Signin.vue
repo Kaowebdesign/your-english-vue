@@ -18,9 +18,12 @@
                 </v-card-text>
                 <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn dark color="cyan darken-1" @click.prevent="signin" :disabled="processing || !valid">Увійти</v-btn>
+                <v-btn color="cyan darken-1" @click.prevent="signin" :disabled="processing || !valid">Увійти</v-btn>
                 </v-card-actions>
             </v-card>
+             <v-card class="mt-5">
+                 <v-card-title class="display-1" ><p class="singTitle">Не маєш акаунту?</p></v-card-title>
+             </v-card>
             </v-flex>
         </v-layout>
     </v-container>
@@ -72,4 +75,7 @@
 </script>
 
 <style scoped>
+    .singTitle{
+        color:#ccc;
+    }
 </style>

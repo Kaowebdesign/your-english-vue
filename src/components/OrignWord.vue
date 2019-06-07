@@ -1,13 +1,13 @@
 <template>
-    <div>
+    <div class="baseWordWrap">
         <h4>{{word.orignWord }}</h4>
         <v-spacer></v-spacer>
         <v-tooltip bottom>
-            <v-avatar slot="activator" v-if="word.type == 1" color="yellow accent-4" size="10"></v-avatar>
+            <v-avatar slot="activator" v-if="word.type == 1" color="yellow accent-4" size="10" class="baseAvatar"></v-avatar>
             <span>Слово</span>
         </v-tooltip>
         <v-tooltip bottom>
-            <v-avatar slot="activator" v-if="word.type == 2" color="deep-orange" size="10"></v-avatar>
+            <v-avatar slot="activator" v-if="word.type == 2" color="deep-orange" size="10" class="baseAvatar"></v-avatar>
             <span>Фразове дієслово</span>
         </v-tooltip>
         <v-icon v-if="canSoundWord" @click="soundword(word)">music_note</v-icon>
@@ -69,5 +69,12 @@
 </script>
 
 <style lang="scss" scoped>
-
+    .baseWordWrap{
+        position:relative;
+    }
+    .baseAvatar{
+        position:absolute;
+        top: 0;
+        right: -20px;
+    }
 </style>

@@ -2,7 +2,7 @@
     <v-container grid-list-md>
         <v-layout row wrap>
             <v-flex xs12>
-                <v-tabs v-model="tabMode" slider-color="black">
+                <v-tabs v-model="tabMode" slider-color="cyan darken-1"  color="transparent">
                     <v-tab :key="'mydata'" ripple>
                         Мої дані
                     </v-tab>

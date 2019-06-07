@@ -1,11 +1,10 @@
 <template>
     <div>
         <v-card>
-            <!-- <v-img
-            src="https://cdn.vuetifyjs.com/images/cards/desert.jpg"
+            <v-img
+            src="https://firebasestorage.googleapis.com/v0/b/your-english-dp.appspot.com/o/background-calm-clouds-747964.jpg?alt=media&token=61f3245d-7023-40d8-abf2-174aa96576a1"
             aspect-ratio="2.75"
-            ></v-img> -->
-
+            ></v-img>
             <v-card-title primary-title>
             <div>
                 <h3 class="headline mb-0"><v-icon class="mr-2">person</v-icon>{{userName}}</h3>
@@ -16,7 +15,7 @@
                 <v-spacer></v-spacer>
                 <v-dialog v-model="dialog" persistent max-width="650">
                     <template v-slot:activator="{ on }">
-                        <v-btn color="primary" dark v-on="on">Змінити</v-btn>
+                        <v-btn color="cyan darken-1" dark v-on="on">Змінити</v-btn>
                     </template> 
                     <v-card>
                         <v-card-title class="headline">Зміна ваших даних</v-card-title>

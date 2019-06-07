@@ -15,9 +15,9 @@
                 </v-layout>
             </v-container>
         </v-flex>
-        <v-flex v-for="article in filterArticles" :key="article.id" xs12 sm10 md8 offset-sm1 offset-md2>
+        <div v-for="article in filterArticles" :key="article.id">
             <article-item :article="article"></article-item>
-        </v-flex>
+        </div>
     </v-layout>
    </v-container>
 </template>

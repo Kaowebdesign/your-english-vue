@@ -9,10 +9,14 @@ import VueYouTubeEmbed from 'vue-youtube-embed'
 import "firebase/firestore"
 import FormatDate from './filters/formatDate'
 import { setupBus } from './infostructure/eventBus'
+import VueTagManager from "vue-tag-manager"
 
 
 Vue.use(Vuetify)
 Vue.use(VueYouTubeEmbed)
+Vue.use(VueTagManager, {
+    gtmId: 'GTM-5TZZ79P'
+})
 
 Vue.config.productionTip = false
 
